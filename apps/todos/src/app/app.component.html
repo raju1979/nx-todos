@@ -1,0 +1,25 @@
+<h1>Todos</h1>
+
+<ul>
+  <li *ngFor="let t of todos" class="todo">{{ t?.title }}</li>
+</ul>
+
+<form #todoForm="ngForm" (ngSubmit)="addTodo()">
+
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="title" name="title">
+  <button type="submit" id="add-todo">Add Todo</button>
+  
+</form>
+
+<p>
+  Default appearance:
+  <button mat-button>Basic</button>
+  <button mat-button color="primary">Primary</button>
+  <button mat-raised-button color="primary">Primary</button>
+</p>
+
+<div>
+  <myorg-todos></myorg-todos>
+</div>
