@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { Todo } from '@myorg/data';
 import { AppService } from './services/app.service';
@@ -16,8 +15,9 @@ export class AppComponent {
   todos: Todo[] = [];
 
   title: string = '';
+  appTitle: string = "Todos"
 
-  constructor(private http: HttpClient, private appService: AppService, private alert: AlertService) {
+  constructor(private appService: AppService, private alert: AlertService) {
     this.fetch();
   }
 

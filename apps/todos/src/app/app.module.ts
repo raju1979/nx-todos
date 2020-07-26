@@ -9,10 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiModule } from '@myorg/ui';
 import { MaterialModule } from '@myorg/material';
 import { ServicesModule } from '@myorg/services';
+import { LoginComponent } from './components/login/login.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,7 +23,8 @@ import { ServicesModule } from '@myorg/services';
     ReactiveFormsModule,
     UiModule,
     ServicesModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

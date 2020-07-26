@@ -1,6 +1,6 @@
-<h1>Todos</h1>
+<myorg-navbar [appTitle]="appTitle"></myorg-navbar>
 
-<ul>
+<!-- <ul>
   <li *ngFor="let t of todos" class="todo">{{ t?.title }}</li>
 </ul>
 
@@ -22,4 +22,5 @@
 
 <div>
   <myorg-todos></myorg-todos>
-</div>
+</div> -->
+<router-outlet></router-outlet>
