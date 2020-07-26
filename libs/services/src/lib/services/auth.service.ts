@@ -15,4 +15,9 @@ export class AuthService {
     return this.http.post<any>('/api/auth/login', {...user});
   }
 
+  register(user: ILoginUser) {
+    console.log('From auth service register');
+    return this.http.post<any>('/api/auth/register', {...user});
+  }
+
 }

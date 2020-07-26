@@ -18,7 +18,7 @@ export class AppComponent {
   appTitle: string = "Todos"
 
   constructor(private appService: AppService, private alert: AlertService) {
-    this.fetch();
+    // this.fetch();
   }
 
   fetch() {

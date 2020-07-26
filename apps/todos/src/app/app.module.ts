@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,9 +13,12 @@ import { LoginComponent } from './components/login/login.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import {BasicAuthInterceptor, ErrorInterceptorService} from '@myorg/services';
+import { RegisterComponent } from './components/register/register.component';
+
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -26,7 +29,10 @@ import { AppRoutingModule } from './app-routing.module';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

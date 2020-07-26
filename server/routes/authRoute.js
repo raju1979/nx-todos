@@ -16,23 +16,30 @@ router.use(function timeLog (req, res, next) {
 // define the home page route
 router.post('/register', function (req, res) {
 
+	console.log(req.body);
+
 	let user = {...req.body};
 
 	try {
 		if(fs.existsSync(`${global.appRoot}/data/user.json`)) {
 	        const data = fs.readFileSync(`${global.appRoot}/data/user.json`, 'utf8');
 	        let users = JSON.parse(data);
-	        users.push(user);
 	        console.log(users);
+	        for(let i = 0; i < users.length; i++) {
+	        	if(users[i]['email'] == req.body.email) {
+	        		return res.status(409).json({"message": "user already exists"});
+	        	}
+	        }
+	        users.push(user);
 	        fs.writeFileSync(`${global.appRoot}/data/user.json`, JSON.stringify(users));
-  			res.send('Success');
+  			res.json({success: true});
 	    } else {
 	        console.log('The file does not exist.');
 	        let users = [];
 	        users.push(user);
 	        console.log(users);
 	        fs.writeFileSync(`${global.appRoot}/data/user.json`, JSON.stringify(users));
-  			res.send('Success');
+  			res.json({success: true});
 	    }
 		
 	} catch(err) {
