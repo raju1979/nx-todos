@@ -24,6 +24,10 @@ export class LoginComponent implements OnInit {
         console.log(response);
         this.alertService.showSuccess("Please wait redirecting", "success", 3000);
         localStorage.setItem('token', response.token);
+        this.authService.setUser({
+          username: response.username,
+          email: response.email
+        });
         setTimeout(() => {
           this.router.navigateByUrl('/todos');
         }, 3000);

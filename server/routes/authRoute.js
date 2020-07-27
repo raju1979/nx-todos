@@ -54,9 +54,9 @@ router.post('/login', function (req, res) {
 		const data = fs.readFileSync(`${global.appRoot}/data/user.json`, 'utf8')
 		let user = JSON.parse(data);
 	    console.log(user);
-	    let userFirst = user[0];
-	    const token = jwt.sign({ user: userFirst.email, name: userFirst.username }, 'TOKEN_SECRET');
-	    res.json({token: token});
+	    let userFirst = user[0]
+	    const token = jwt.sign({ user: userFirst.email, name: userFirst.username }, 'TOKEN_SECRET', { expiresIn: '10h' });
+	    res.json({token: token, username: userFirst.username, email: userFirst.email});
 	} catch(err) {
 		res.send('some error' + err).status(404);
 	}

@@ -36,4 +36,8 @@ export class AppComponent {
     });
   }
 
+  doLogout() {
+    console.log('logout');
+  }
+
 }
