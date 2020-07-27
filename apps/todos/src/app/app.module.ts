@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UiModule } from '@myorg/ui';
+import { GlobalstoreModule } from '@myorg/globalstore';
 import { MaterialModule } from '@myorg/material';
 import { ServicesModule } from '@myorg/services';
 import { LoginComponent } from './components/login/login.component';
@@ -27,7 +28,8 @@ import { RegisterComponent } from './components/register/register.component';
     UiModule,
     ServicesModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GlobalstoreModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

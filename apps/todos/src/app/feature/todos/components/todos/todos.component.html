@@ -1,1 +1,44 @@
-<p>todos works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form class="example-form" #todoForm="ngForm" (ngSubmit)="onSubmit()">
+                <mat-card>
+                    <mat-card-title>Add New Todo</mat-card-title>
+                    <mat-card-content>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Title</mat-label>
+                            <input matInput placeholder="title" name="title" [(ngModel)]="todo.title" />
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter task description</mat-label>
+                            <textarea matInput name="description" placeholder="Ex. Lets clean the home..."
+                                [(ngModel)]="todo.description"></textarea>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button type="submit" mat-raised-button color="primary"
+                            [disabled]="!todoForm.valid">Submit</button>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <ul>
+                  <li *ngFor="let todo of todos | async" (click)="onTodoClick(todo.id)"
+                  [style.textDecoration]="todo.completed?'line-through':'none'"
+                  >
+                    {{todo.title}} <button href="#" (click)="removeTodo(todo.id)">x</button>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <myorg-ag-grid [columns]="['title', 'description', 'completed']" [rows]="todos | async"></myorg-ag-grid>
+        </div>
+    </div>
+</div>

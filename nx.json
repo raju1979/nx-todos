@@ -40,6 +40,9 @@
     },
     "material": {
       "tags": []
+    },
+    "globalstore": {
+      "tags": []
     }
   }
 }

@@ -19,7 +19,8 @@
       "@myorg/data": ["libs/data/src/index.ts"],
       "@myorg/services": ["libs/services/src/index.ts"],
       "@myorg/ui": ["libs/ui/src/index.ts"],
-      "@myorg/material": ["libs/material/src/index.ts"]
+      "@myorg/material": ["libs/material/src/index.ts"],
+      "@myorg/globalstore": ["libs/globalstore/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -17,10 +17,7 @@
             "polyfills": "apps/todos/src/polyfills.ts",
             "tsConfig": "apps/todos/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/todos/src/favicon.ico",
-              "apps/todos/src/assets"
-            ],
+            "assets": ["apps/todos/src/favicon.ico", "apps/todos/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "apps/todos/src/styles.css",
@@ -84,10 +81,7 @@
               "apps/todos/tsconfig.app.json",
               "apps/todos/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/todos/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/todos/**/*"]
           }
         },
         "test": {
@@ -122,13 +116,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/todos-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/todos-e2e/**/*"
-            ]
+            "tsConfig": ["apps/todos-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/todos-e2e/**/*"]
           }
         }
       }
@@ -146,10 +135,7 @@
               "libs/data/tsconfig.lib.json",
               "libs/data/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/data/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/data/**/*"]
           }
         },
         "test": {
@@ -175,10 +161,7 @@
               "libs/services/tsconfig.lib.json",
               "libs/services/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/services/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/services/**/*"]
           }
         },
         "test": {
@@ -206,10 +189,7 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
           }
         },
         "test": {
@@ -237,10 +217,7 @@
               "libs/material/tsconfig.lib.json",
               "libs/material/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/material/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/material/**/*"]
           }
         },
         "test": {
@@ -250,6 +227,34 @@
             "tsConfig": "libs/material/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "globalstore": {
+      "projectType": "library",
+      "root": "libs/globalstore",
+      "sourceRoot": "libs/globalstore/src",
+      "prefix": "myorg",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/globalstore/tsconfig.lib.json",
+              "libs/globalstore/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/globalstore/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/globalstore/jest.config.js",
+            "tsConfig": "libs/globalstore/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/globalstore/src/test-setup.ts"
           }
         }
       },
