@@ -2,12 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import {Select, Store,  Actions, ofActionErrored} from '@ngxs/store';
+
 // import { AuthenticationService } from '@app/_services';
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
-    constructor() { 
+    constructor(private store: Store) { 
       console.log('this is interceptor');
+      this.store.selectSnapshot<any>((state: any) => {
+          console.log('select state', state.app)
+        });
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

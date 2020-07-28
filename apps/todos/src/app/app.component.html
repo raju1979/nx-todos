@@ -1,5 +1,7 @@
+
 <myorg-navbar [appTitle]="appTitle" (logout)="doLogout()"></myorg-navbar>
 
+<div id="loader" *ngIf="false">Loading...</div>
 <!-- <ul>
   <li *ngFor="let t of todos" class="todo">{{ t?.title }}</li>
 </ul>

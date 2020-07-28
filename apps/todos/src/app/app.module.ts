@@ -6,14 +6,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+
 import { UiModule } from '@myorg/ui';
-import { GlobalstoreModule } from '@myorg/globalstore';
 import { MaterialModule } from '@myorg/material';
 import { ServicesModule } from '@myorg/services';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import {BasicAuthInterceptor, ErrorInterceptorService} from '@myorg/services';
+
+import { AppState } from './store/app.state';
 
 
 
@@ -28,7 +33,11 @@ import {BasicAuthInterceptor, ErrorInterceptorService} from '@myorg/services';
     ServicesModule,
     MaterialModule,
     AppRoutingModule,
-    GlobalstoreModule
+    NgxsModule.forRoot([AppState], {
+      developmentMode: true
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
