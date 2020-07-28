@@ -3,7 +3,7 @@
         <span>{{appTitleProps}}</span>
         <span class="example-spacer"></span>
         <div *ngIf='!user; else loggedIn'>            
-            <a mat-icon-button class="example-icon" aria-label="login"  title="Login" [routerLink]="['/login']">
+            <a mat-icon-button class="example-icon" aria-label="login"  title="Login" [routerLink]="['/auth/login']">
                 <mat-icon>perm_identity</mat-icon>
             </a>
         </div>

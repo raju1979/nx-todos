@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  constructor(private authService: AuthService, private alertService: AlertService, private router: Router) { }
+  constructor(private authService: AuthService, private alertService: AlertService, private router: Router) { 
+  }
 
   ngOnInit(): void {
   }
